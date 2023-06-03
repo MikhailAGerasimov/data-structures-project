@@ -25,3 +25,15 @@ class TestStack(unittest.TestCase):
         self.assertEquals(stack_new.size, 2)
         self.assertEquals(stack_new.top.data, 5)
         self.assertEquals(stack_new.top.next_node.data, "lor")
+
+
+    def test_pop(self):
+        stack_new = stack.Stack()
+        data = stack_new.pop()
+        self.assertEquals(data, None)
+        stack_new.push("lor")
+        stack_new.push(5)
+        data1 = stack_new.pop()
+        self.assertEquals(data1, 5)
+        self.assertEquals(stack_new.top.data, "lor")
+
