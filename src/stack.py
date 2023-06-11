@@ -44,3 +44,13 @@ class Stack:
             self.top = self.top.next_node
             self.size -= 1
             return del_elem
+
+    def __str__(self):
+        """Магический метод для строкового представления объекта"""
+        result = ''
+        node = self.top
+        for i in range(self.size):
+            result += str(node.data)
+            result += "\n"
+            node = node.next_node
+        return result[:-1]

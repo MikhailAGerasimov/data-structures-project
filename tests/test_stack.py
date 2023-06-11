@@ -37,3 +37,9 @@ class TestStack(unittest.TestCase):
         self.assertEquals(data1, 5)
         self.assertEquals(stack_new.top.data, "lor")
 
+
+    def test_str(self):
+        stack_new = stack.Stack()
+        stack_new.push("lor")
+        stack_new.push(5)
+        self.assertEquals(str(stack_new), "5\nlor")
