@@ -2,7 +2,7 @@ import unittest
 from src import queue
 
 
-class TestStack(unittest.TestCase):
+class TestQueue(unittest.TestCase):
     def test_init_node(self):
         node_new = queue.Node(5)
         self.assertEquals(node_new.data, 5)
@@ -26,6 +26,19 @@ class TestStack(unittest.TestCase):
         self.assertEquals(queue_new.head.data, "data1")
         self.assertEquals(queue_new.tail.data, "data2")
         self.assertEquals(queue_new.size, 2)
+
+    def test_dequeue(self):
+        queue_new = queue.Queue()
+
+        queue_new.enqueue('data1')
+        queue_new.enqueue('data2')
+        queue_new.enqueue('data3')
+
+        self.assertEquals(queue_new.dequeue(),'data1')
+        self.assertEquals(queue_new.dequeue(), 'data2')
+        self.assertEquals(queue_new.dequeue(), 'data3')
+        self.assertEquals(queue_new.dequeue(), None)
+
 
     def test_str(self):
         queue_new = queue.Queue()
