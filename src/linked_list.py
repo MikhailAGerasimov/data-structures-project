@@ -56,3 +56,29 @@ class LinkedList:
 
         ll_string += ' None'
         return ll_string[1:]
+
+    def to_list(self):
+        """Возвращает список с данными, содержащимися в односвязном списке `LinkedList`"""
+        data_list = []
+        node = self.head
+        if node is None:
+            return data_list
+        while node:
+            data_list.append(node.data)
+            node = node.next_node
+        return data_list
+
+    def get_data_by_id(self, data):
+        """возвращает первый найденный в `LinkedList` словарь с ключом 'id',
+            значение которого равно переданному в метод значению."""
+        node = self.head
+        if node is None:
+            return {}
+        while node:
+            try:
+                if node.data['id'] == data:
+                    return node.data
+            except TypeError:
+                print("Данные не являются словарем или в словаре нет id.")
+            node = node.next_node
+        return {}
